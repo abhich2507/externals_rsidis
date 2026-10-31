@@ -1,0 +1,2 @@
+/u/group/c-nucr/aabhishe/externals_rsidis/hcswif/FARM_SCRIPTS/nucR_24p0_12carbon25_hms.sh
+/u/group/c-nucr/aabhishe/externals_rsidis/hcswif/FARM_SCRIPTS/nucR_24p2_12carbon25_hms.sh

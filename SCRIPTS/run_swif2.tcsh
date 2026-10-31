@@ -175,7 +175,7 @@ endif
 
 # Farm settings (override in the settings file if desired).
 if (! $?ACCOUNT) set ACCOUNT = clas12
-if (! $?TIME)    set TIME    = 86400
+if (! $?TIME)    set TIME    = 3600
 if (! $?RAM)     set RAM     = 50000000
 if (! $?DISK)    set DISK    = 10000000000
 
@@ -232,7 +232,7 @@ mkdir -p INP RUNPLAN OUT runout hcswif/FARM_SCRIPTS
 
 set ANGLES = /tmp/run_swif2_angles.$$
 set BASES  = /tmp/run_swif2_bases.$$
-set LIST   = hcswif/FARM_SCRIPTS/${NAME}_${TARG}_list.txt
+set LIST   = ${ROOT}/hcswif/FARM_SCRIPTS/${NAME}_${TARG}_list.txt
 awk -v a="$THMIN" -v n="$NTH" -v s="$THSTEP" 'BEGIN{for(i=0;i<=n;i++) printf "%.1f\n", a+i*s}' > $ANGLES
 rm -f $BASES $LIST
 

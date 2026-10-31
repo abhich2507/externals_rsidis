@@ -9,5 +9,5 @@ set EPSTEP = 0.01
 set THMIN  = 24.0
 set THMAX  = 24.2
 set THSTEP = 0.2
-set NAME   = run24242
+set NAME   = nucR
 set JOBS   = 2
