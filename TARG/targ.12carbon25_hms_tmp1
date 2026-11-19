@@ -1,0 +1,81 @@
+Carbon 2%     
+from ent.m2 using 0.854 g/cm2- revised 2/20/01, and Dunne 8/01
+----*----1----*----2----*----3----*----4----*----5----*----6----*----7---
+                                                                         
+iZ    (#)          6                                                     
+iA    (#)         12                                                     
+                                                                         
+avgA  (#)                                                                
+avgM (GeV)                                                               
+                                                                         
+target type          ordinary   : columns 21-27         
+thicknesses (rad. lengths):                                              
+   target          0.020000             
+   walls           0.000001                                              
+   pre-target      0.000001                 
+   post-target     0.00747
+nseg (even)        2                                                     
+                                                                         
+Pking: Ep/E >      1.0                                                   
+ikk               14  elastic nucleon model                              
+iout               2                                                     
+idut              13 elastic d2 model: 0=old, 11,12,13,14=Ulmar(below    
+inel_model       206  inelastc h2 modl: 0=ineft(Bodek);9,12=Stuart+F2Glob etc.
+pauli_model        1  0= old stein model; 1=tsai model; 2 no suppression
+Nuc Tail Method    1  0=No cos(theta_k) integration;  1= cos(th_k) integration
+Nuc FormFac Mdl    1  0=Shell,Gauss, 1=Hicks for Si28 and O16
+
+! INEL_MODEL inelastc h2 modl: 0=ineft(Bodek);9,12=Stuart+F2Glob 
+!                                             1=f2nmc(DIS),ineft(RES)  
+!            **OR**
+! INEL_MODEL =rrdd where rr is resonance model number and dd is DIS model 
+!             It must be >=100
+! DIS_MODEL= 1 ineft
+!            2 f2nmc
+!            3 f2nmc95
+!            9 f2glob model 9
+!           12 f2glob model 12
+! RES_MODEL  1 ineft
+!            2 H2Model           
+------------------------------------------------------------------------ 
+                                                                         
+FIRST TWO LINES ARE FOR USER COMMENTS.                                   
+                                                                         
+CAUTION! note columnar orientation of data!                              
+                                                                         
+iZ   = atomic number of target.                                          
+iA   = nominal number of nucleons, must be integral!                     
+                                                                         
+OPTIONAL INPUT:                                                          
+     avgA = number of nucleons averaged over isotope abundancies.        
+     avgM = mass of nucleus in GeV averaged over isotope abundancies.    
+If both optional quantities are left zero, the program assumes avgA=iA   
+and calculates avgM for nucleus (iZ,iA) using the Weizsacker mass        
+formula.  This formula is doctored to be exact for iA.le.4 and accurate  
+to +/-.002 GeV elsewhere.                                                
+                                                                         
+target type = 'SOLID', 'V_CYL' (vertical cylinder), 'E_140' or 'OTHER'.  
+       'V_CYL' must be followed by all 4 thicknesses.                    
+       'SOLID' must be followed by target, pre-target, and post-target   
+               thicknesses.                                              
+       'E_087' and 'E_089' must be followed by target thickness only.    
+       'E_140' must be followed by target, pre-target, and post-target   
+               thicknesses.                                              
+       'OTHER' must be followed by target, pre-target, and post-target   
+               thicknesses, AND user must supply subroutine USERTARG     
+               called by subroutine RADIATORS in program EXTERNAL.       
+               USERTARG should be modelled after subroutine V_CYL or     
+               subroutine E_140.                                         
+Nseg = number of target segments for integral. Nseg must be EVEN. If     
+       zero, default value is 4.                                         
+                                                                         
+Pking: EP/E = value of Eprime/E0 above which we will use the peaking     
+       approx. for the inelastic correction. Else, we do it exactly.     
+Ikk  = model number for NFORM.  Current wisdom suggests using the Gari   
+       and Krumpelmann model, model number 12.                           
+iout = selects choice of two "standard" output formats.                  
+idut = selects d2 model: 0=what came with Bardin program                 
+                        11=Ulmar fit to Tjon model with impulse approx   
+                        12 Ulmar                    ia +mec              
+                        13 Ulmar                    rsc                  
+                        14 Ulmar                    rsc+mec              

@@ -1,7 +1,7 @@
 # Kinematic settings for run_local.tcsh
 # Usage: ./run_local.tcsh kinematic_settings.tcsh
 
-set TARG   = 12carbon20_hms_tmp
+set TARG   = 12carbon25_hms_tmp
 set EBEAM  = 6.450
 set EPMIN  = 0.95
 set EPMAX  = 1.30
